@@ -1,0 +1,23 @@
+.range-selector {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 10px;
+    align-items: center;
+}
+
+.range-selector h2 {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.input-range-container {
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+}
+
+input[type="number"] {
+    width: 50px;
+    margin: 3px;
+}

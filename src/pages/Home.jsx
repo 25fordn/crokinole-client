@@ -11,7 +11,7 @@ const Home = () => {
     const [test, setTest] = useState('Nothing')
 
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_API_URL}/test`)
+        fetch(`${import.meta.env.VITE_API_URL}/test`, {mode: 'cors'})
             .then(response => response.json())
             .then(data => setTest(data.message));
     }, []);

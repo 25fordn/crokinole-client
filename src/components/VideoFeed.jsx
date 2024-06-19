@@ -10,7 +10,7 @@ const VideoFeed = ({cameraName}) => {
 
     useEffect(() => {
         setIsLoading(true);
-        socketRef.current = io(import.meta.env.VITE_API_URL);
+        socketRef.current = io(import.meta.env.VITE_API_URL, {transports: ['websocket']});
 
         socketRef.current.on('video_feed', data => {
             if (data.camera === cameraName && videoRef.current) {
@@ -24,7 +24,7 @@ const VideoFeed = ({cameraName}) => {
             }
         });
 
-        fetch(`${import.meta.env.VITE_API_URL}/stream/${cameraName}`, {mode: 'cors'})
+        fetch(`${import.meta.env.VITE_API_URL}/stream/${cameraName}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
